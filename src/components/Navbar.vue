@@ -33,7 +33,7 @@
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding: 0 1rem;
