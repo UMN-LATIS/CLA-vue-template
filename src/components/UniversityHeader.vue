@@ -88,7 +88,6 @@
  import UniversityHeaderButtonContainer from "./UniversityHeaderButtonContainer.vue";
  import UniversityHeaderButton from "./UniversityHeaderButton.vue";
   
-  import { computed } from 'vue';
   export default {
     name: 'UniversityHeader',
     components: {
@@ -98,7 +97,7 @@
     props: {
      
     },
-    setup(props) {
+    setup() {
         let wordmark = require('./assets/UMNWordmark.svg');
        return {
         wordmark

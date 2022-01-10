@@ -168,7 +168,7 @@ import CLAWordmark from "./CLAWordmark.vue"
             CLAWordmark
         },
         props: {},
-        setup(props) {
+        setup() {
         },
     };
 </script>

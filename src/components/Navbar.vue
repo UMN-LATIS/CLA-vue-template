@@ -151,14 +151,14 @@
 
 <script>
 
-import { ref, computed } from 'vue';
+import { ref, computed } from 'vue-demi';
   export default {
     name: 'Navbar',
     components: {
     },
     props: {
     },
-    setup(props) {
+    setup() {
         let revealNav = ref(false);
        return {
         revealNav,

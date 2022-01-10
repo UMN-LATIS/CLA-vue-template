@@ -52,7 +52,7 @@
 </style>
 
 <script>
-  import { computed } from 'vue';
+  import { computed } from 'vue-demi';
   export default {
     name: 'UniversityHeaderButton',
     props: {

@@ -49,7 +49,7 @@
     },
     props: {
     },
-    setup(props) {
+    setup() {
      
     },
   };

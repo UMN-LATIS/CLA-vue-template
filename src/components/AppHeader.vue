@@ -50,7 +50,6 @@
  import UniversityHeader from "./UniversityHeader.vue";
  import Navbar from "./Navbar.vue";
   
-  import { computed } from 'vue';
   export default {
     name: 'AppHeader',
     components: {
@@ -61,7 +60,7 @@
     props: {
      
     },
-    setup(props) {
+    setup() {
         
     },
   };

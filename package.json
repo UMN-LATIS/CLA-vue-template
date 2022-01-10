@@ -1,28 +1,24 @@
 {
-  "name": "intro-storybook-vue-template",
-  "version": "0.1.0",
+  "name": "cla-vue-template",
+  "version": "0.0.1",
   "private": true,
-  "description": "Starter template to get up and running quickly with Vue and Storybook",
-  "author": "Chromatic <https://chromatic.com/>",
+  "description": "Basic layout for CLA (LATIS) VueJS apps",
+  "author": "LATIS Technology ARchitecture",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chromaui/intro-storybook-vue-template"
-  },
-  "bugs": {
-    "url": "https://github.com/chromaui/intro-storybook-vue-template/issues"
+    "url": "https://github.com/UMN-LATIS/CLA-vue-template"
   },
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib  --inline-vue --name cla-vue-template src/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue-demi": "^0.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
@@ -43,8 +39,18 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "typescript": "~3.9.3",
+    "vue": "^3.0.0",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.2.0"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "eslintConfig": {
     "root": true,
@@ -75,5 +81,9 @@
     "> 1%",
     "last 2 versions",
     "not dead"
+  ],
+  "main": "dist/cla-vue-template.common.js",
+  "files": [
+    "dist/*"
   ]
 }

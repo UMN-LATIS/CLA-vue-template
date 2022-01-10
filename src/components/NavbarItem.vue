@@ -44,7 +44,7 @@
     name: 'NavbarItem',
     props: {
     },
-    setup(props) {
+    setup() {
        return {
         
        }
