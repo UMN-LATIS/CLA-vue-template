@@ -1,0 +1,21 @@
+body {
+  font-family: "Open Sans",
+    Arial,
+    sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--main-bg-color);
+}
+
+:root {
+  --main-bg-color: rgb(249, 247, 246);
+  --maroon: #7a0019;
+  --gold: #ffcc33;
+  --light-gray: #f0efee;
+  --dark-gray: #5a5a5a;
+  --medium-gray: #737487;
+  --light-black: 262626;
+  --nav-item-active: #d5d6d2
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
