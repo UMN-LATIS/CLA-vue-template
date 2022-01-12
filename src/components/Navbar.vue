@@ -1,13 +1,13 @@
 <template>
-    <div style="width: 100%">
-        <div class="nav-container">
+    <div style="width: 100%;">
+        <div class="nav-container" :class="isOpen">
             <div class="hamburger-button" @click="revealNav = !revealNav">
                 <div role="button" aria-pressed="false" aria-expanded="false" title="Toggle Section Menu Visibility" tabindex="0" >
                 <span>Menu</span>
                     <svg  aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
                 </div>
             </div>
-            <ul class="mobile-navbar-block" :class="isOpen">
+            <ul class="mobile-navbar-block" :class="isOpen" >
                 <slot name="navbar-links"></slot>
             </ul>
         </div>
@@ -37,14 +37,17 @@
     justify-content: flex-start;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    padding: 0 1rem;
+    padding: 0 0rem;
     min-width:100%;
+    max-height:0;
+    transition: all .5s ease-in-out;
+    /* background: var(--main-bg-color) */
 }
 
 .hamburger-button div{
     position: absolute;
     z-index: 100;
-    right: 1.5rem;
+    right: 1rem;
     top: -4rem;
     display: flex;
     flex-direction: column;
@@ -82,8 +85,6 @@
     margin: 1rem;
     padding: 0;
     width: 100%;
-    transition: all .5s ease-in-out;
-    max-height: 0rem;
     overflow: hidden;
 }
 
