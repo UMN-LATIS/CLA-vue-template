@@ -5,6 +5,7 @@
                 <div class="branding-block">
                     <a href="https://umn.edu" class="wordmark-link">
                     <img :src="wordmark" />
+
                     </a>
                 </div>
             </div>
@@ -87,7 +88,9 @@
 <script>
  import UniversityHeaderButtonContainer from "./UniversityHeaderButtonContainer.vue";
  import UniversityHeaderButton from "./UniversityHeaderButton.vue";
-  
+
+ import UMNWordmark from './assets/UMNWordmark.svg'
+console.log(UMNWordmark);
   export default {
     name: 'UniversityHeader',
     components: {
@@ -98,7 +101,8 @@
      
     },
     setup() {
-        let wordmark = require('./assets/UMNWordmark.svg');
+        let wordmark = UMNWordmark;
+
        return {
         wordmark
        }

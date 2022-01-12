@@ -75,10 +75,29 @@
     
 }
 
+/* duplicated for vue2 */
+.app-link-wrapper a {
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+    max-width: calc(100% - 50px);
+    color: var(--maroon);
+    text-decoration-color: var(--medium-gray);
+    text-decoration-thickness: 2px;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    
+}
+
+
 ::v-slotted(.app-link-wrapper a:hover) {
     text-decoration: underline;
 }
 
+
+.app-link-wrapper a:hover {
+    text-decoration: underline;
+}
 </style>
 
 <script>

@@ -22,11 +22,12 @@
 }
 
 ::v-slotted(.navbar-item a) {
+    font-size: 1rem;
     background-color: var(--light-gray);
     outline-offset: -4px;
     padding: 1rem;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     text-decoration: none;
     color: var(--dark-gray);
@@ -34,6 +35,27 @@
 }
 
 ::v-slotted(.navbar-item a:hover) {
+    background-color: var(--nav-item-active);
+}
+
+.active a {
+    background-color: var(--nav-item-active) !important;
+}
+
+.navbar-item a {
+    font-size: 1rem;
+    background-color: var(--light-gray);
+    outline-offset: -4px;
+    padding: 1rem;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    text-decoration: none;
+    color: var(--dark-gray);
+    white-space: nowrap
+}
+
+.navbar-item a:hover {
     background-color: var(--nav-item-active);
 }
 

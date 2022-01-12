@@ -30,6 +30,7 @@
 </style>
 
 <script>
+import CLAWordmark from './assets/CollegeWordmark.svg';
   export default {
     name: 'CLAWordmark',
     components: {
@@ -37,7 +38,7 @@
     props: {
     },
     setup() {
-        let wordmark = require('./assets/CollegeWordmark.svg');
+        let wordmark = CLAWordmark;
        return {
         wordmark
        }

@@ -1,4 +1,5 @@
 <template>
+    <div style="width: 100%">
         <div class="nav-container">
             <div class="hamburger-button" @click="revealNav = !revealNav">
                 <div role="button" aria-pressed="false" aria-expanded="false" title="Toggle Section Menu Visibility" tabindex="0" >
@@ -24,7 +25,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
 </template>
 
 <style scoped>
