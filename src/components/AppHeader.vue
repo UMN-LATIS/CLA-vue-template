@@ -15,6 +15,9 @@
                 <template v-slot:navbar-links>
                     <slot name="navbar-links"></slot>
                 </template>
+                <template v-slot:navbar-links-right v-if="$slots['navbar-links-right']">
+                    <slot name="navbar-links-right"></slot>
+                </template>
             </Navbar>
         </div>
     </div>

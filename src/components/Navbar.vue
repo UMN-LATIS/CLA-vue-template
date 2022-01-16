@@ -17,9 +17,17 @@
                     <nav role="navigation" class="app-nav">
                         <h2 class="visually-hidden">App Navigation</h2>
                         <div class="branding-block">
-                            <ul class="navbar-block">
+                            <ul class="navbar-block" v-if="!isSplitNav">
                                 <slot name="navbar-links"></slot>
                             </ul>
+                            <div class="navbar-split" v-else>
+                                <ul class="navbar-block">
+                                    <slot name="navbar-links"></slot>
+                                </ul>
+                                <ul class="navbar-block">
+                                    <slot name="navbar-links-right"></slot>
+                                </ul>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -42,6 +50,15 @@
     max-height:0;
     transition: all .5s ease-in-out;
     /* background: var(--main-bg-color) */
+}
+
+.navbar-split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+    min-width:100%;
 }
 
 .hamburger-button div{
@@ -160,12 +177,15 @@ import { ref, computed } from 'vue-demi';
     },
     props: {
     },
-    setup() {
+    setup(props, { slots }) {
         let revealNav = ref(false);
        return {
         revealNav,
         "isOpen": computed(() => {
             return revealNav.value ? 'mobile-navbar-block-open' : '';
+        }),
+        "isSplitNav": computed(() => {
+            return !!slots["navbar-links-right"];
         })
        }
     },
