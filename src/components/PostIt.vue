@@ -1,12 +1,18 @@
 <template>
-    <div class="outer-container">
-        <div class="inner-container">
-            <slot></slot>
+    <div class="flex-container">
+        <div class="outer-container">
+            <div class="inner-container">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+
+.flex-container {
+    flex: 1 0 auto;
+}
 
 .outer-container {
     max-width: 71.1875em;
@@ -14,7 +20,7 @@
     margin-top: 1.5rem;
     position:relative;
     padding: 0 1.25rem;
-    flex: 1 0 auto;
+    
 }
 
 @media (min-width: 75em) {
