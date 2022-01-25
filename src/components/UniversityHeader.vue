@@ -3,10 +3,7 @@
         <div class="header-block">
             <div class="header-block-inner">
                 <div class="branding-block">
-                    <a href="https://umn.edu" class="wordmark-link">
-                    <img :src="wordmark" />
-
-                    </a>
+                    <UMNWordmark />
                 </div>
             </div>
             <div class="header-block-inner">
@@ -66,46 +63,26 @@
     justify-content: flex-end;
 }
 
-.wordmark-link {
-    flex: 1 1 auto;
-    display: flex;
-    position: relative;
-    align-items: center;
-    max-width: 21.25rem;
-    padding: 0.25rem;
-}
-.wordmark-link img {
-    width: 100%;
-    /* height: auto; */
-    /* min-height: 1px; */
-    max-width: 100%;
-    /* display: block; */
-    /* overflow: hidden; */
-}
 
 </style>
 
 <script>
  import UniversityHeaderButtonContainer from "./UniversityHeaderButtonContainer.vue";
  import UniversityHeaderButton from "./UniversityHeaderButton.vue";
+ import UMNWordmark from "./UMNWordmark.vue";
 
- import UMNWordmark from './assets/UMNWordmark.svg'
-console.log(UMNWordmark);
   export default {
     name: 'UniversityHeader',
     components: {
       UniversityHeaderButtonContainer,
       UniversityHeaderButton,
+      UMNWordmark
     },
     props: {
      
     },
     setup() {
-        let wordmark = UMNWordmark;
-
-       return {
-        wordmark
-       }
+     
     },
   };
 </script>

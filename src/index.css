@@ -8,6 +8,12 @@ body {
   line-height: 1.4 !important;
 }
 
+.cla-template-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column
+}
+
 :root {
   --main-bg-color: rgb(249, 247, 246);
   --maroon: #7a0019;

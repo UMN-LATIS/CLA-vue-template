@@ -17,7 +17,7 @@ const Template = args => ({
   setup() {
     return { args, AppHeaderDefault };
   },
-  template: `<AppHeader><template #app-link>${AppHeaderDefault.args.appslot}</template><template #navbar-links>${AppHeaderDefault.args.navslot}</template></AppHeader><PostIt>${args.postitContent}</PostIt><AppFooter></AppFooter>`,
+  template: `<div class="cla-template-wrapper"><AppHeader><template #app-link>${AppHeaderDefault.args.appslot}</template><template #navbar-links>${AppHeaderDefault.args.navslot}</template></AppHeader><PostIt>${args.postitContent}</PostIt><AppFooter></AppFooter></div>`,
 });
 
 export const Default = Template.bind({});

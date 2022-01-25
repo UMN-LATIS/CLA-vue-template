@@ -14,6 +14,7 @@
     margin-top: 1.5rem;
     position:relative;
     padding: 0 1.25rem;
+    flex: 1 0 auto;
 }
 
 @media (min-width: 75em) {

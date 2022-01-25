@@ -53,6 +53,8 @@ In your applications's CSS file, import the global CSS values
 
 The AppHeader component has two named slots, to include the application title (with an optional link) as well as the nav components. See the AppHeader storybook story for an example of that view in production. The other components have no external props or slots. They should have no impact on the overall CSS of your application. As long as your application isn't setting styles on markup elements, it should be able to coexist with other UI libraries. 
 
+You probably want to wrap all of your components in a `<div class="cla-template-wrapper"></div>` block to set the minimum height to 100vh and ensure your footer is at the bottom. 
+
 ## Updating components
 
 To pull changes from the template library into your application, update the submodule:
