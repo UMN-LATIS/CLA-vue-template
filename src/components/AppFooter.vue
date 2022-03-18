@@ -39,7 +39,7 @@
                 <span class="copyright-wrapper">© 2022 Regents of the University of Minnesota. All rights reserved. The
                     University of Minnesota is an equal opportunity educator and employer.</span> <span
                     class="accessibility-wrapper">CLA is committed to making its digital resources accessible. <a
-                        href="https://oit-drupal-prd-web.oit.umn.edu/indexAccess.php?ref_url=https://cla.umn.edu/history">Report
+                        href="https://oit-drupal-prd-web.oit.umn.edu/indexAccess.php?ref_url=https://cla.umn.edu/">Report
                         Web Disability-Related Issue</a></span>. <span class="privacy-wrapper"><a
                         href="https://twin-cities.umn.edu/privacy">Privacy</a></span>
 
