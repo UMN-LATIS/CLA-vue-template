@@ -160,7 +160,7 @@
 
 
 <script>
-import {ref} from 'vue'
+import {ref} from 'vue-demi'
 import CLAWordmark from "./CLAWordmark.vue"
     export default {
         name: 'AppFooter',
