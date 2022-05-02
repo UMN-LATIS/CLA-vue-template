@@ -17,7 +17,7 @@
                     <div class="footer-connect">
                         <h2>Connect</h2>
                         <ul class="footer-list">
-                            <li><a href="mailto:latistecharch@umn.edu">latistecharch@umn.edu</a></li>
+                            <li><a :href="'mailto:'+ contact">{{ contact }}</a></li>
                         </ul>
                     </div>
                     <div class="footer-text">
@@ -171,7 +171,12 @@ import CLAWordmark from "./CLAWordmark.vue"
         components: {
             CLAWordmark
         },
-        props: {},
+        props: {
+            contact: {
+                type: String,
+                default: 'latistecharch@umn.edu'
+            }
+        },
         setup() {
             return {
                 reportIssueURL: ref("https://oit-drupal-prd-web.oit.umn.edu/indexAccess.php?ref_url=" + encodeURI(window.location.href))
