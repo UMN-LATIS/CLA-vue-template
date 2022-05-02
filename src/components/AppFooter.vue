@@ -126,6 +126,10 @@
         margin: 0;
     }
 
+    .footer-list li {
+        list-style-type: none;
+    }
+
     .footer-list a {
         text-decoration: none;
         color: var(--light-black);

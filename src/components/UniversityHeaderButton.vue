@@ -9,7 +9,7 @@
 <style scoped>
 
 .university-header-button {
-
+  list-style-type: none;
 }
 
 .university-header-button a {

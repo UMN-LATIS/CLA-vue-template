@@ -11,6 +11,7 @@
 .navbar-item {
     text-align: center;
     margin-bottom: 0;
+    list-style-type: none;
 }
 
 .navbar-item:not(:first-child):not(:last-child) {
