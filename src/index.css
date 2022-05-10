@@ -18,6 +18,7 @@ body {
   --main-bg-color: rgb(249, 247, 246);
   --maroon: #7a0019;
   --gold: #ffcc33;
+  --light-gold: ffde7a;
   --light-gray: #f0efee;
   --dark-gray: #5a5a5a;
   --medium-gray: #737487;
@@ -26,3 +27,4 @@ body {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');

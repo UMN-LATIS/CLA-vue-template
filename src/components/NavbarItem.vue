@@ -32,15 +32,18 @@
     justify-content: center;
     text-decoration: none;
     color: var(--dark-gray);
-    white-space: nowrap
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
 }
 
 ::v-slotted(.navbar-item a:hover) {
     background-color: var(--nav-item-active);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .active a {
     background-color: var(--nav-item-active) !important;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .navbar-item a {
@@ -53,11 +56,13 @@
     justify-content: center;
     text-decoration: none;
     color: var(--dark-gray);
-    white-space: nowrap
+    white-space: nowrap;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .navbar-item a:hover {
     background-color: var(--nav-item-active);
+    transition: background-color 0.2s ease-in-out;
 }
 
 </style>

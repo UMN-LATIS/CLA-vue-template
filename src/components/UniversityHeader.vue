@@ -9,9 +9,9 @@
             <div class="header-block-inner">
                 <div class="link-block">
                     <UniversityHeaderButtonContainer>
-                        <UniversityHeaderButton linkTarget="http://myu.umn.edu" :showBorder="false">MyU</UniversityHeaderButton> 
+                        <UniversityHeaderButton linkTarget="http://myu.umn.edu" :showBorder="false"><span id="header-myu">MyU</span></UniversityHeaderButton> 
                         <UniversityHeaderButton linkTarget="http://onestop.umn.edu" :showBorder="false">OneStop</UniversityHeaderButton> 
-                        <UniversityHeaderButton linkTarget="http://search.umn.edu" :showBorder="false">Search</UniversityHeaderButton>
+                        <UniversityHeaderButton linkTarget="http://search.umn.edu" :showBorder="false"><span id="header-search">Search</span></UniversityHeaderButton>
                     </UniversityHeaderButtonContainer>
                 </div>
             </div>
@@ -21,10 +21,24 @@
 
 <style scoped>
 
+#header-myu::after {
+    position: relative;
+    content: '\f023';
+    font-family: "Font Awesome 5 Free";
+    margin-left: 0.25rem;
+}
+
+#header-search::before {
+    position: relative;
+    content: '\f002';
+    font-family: "Font Awesome 5 Free";
+    margin-right: 0.25rem;
+}
+
 .outer-block {
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: var(--light-gold);
 }
 
 .header-block {

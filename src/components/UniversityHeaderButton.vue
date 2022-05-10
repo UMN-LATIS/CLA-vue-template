@@ -10,6 +10,12 @@
 
 .university-header-button {
   list-style-type: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.university-header-button:hover {
+  background-color: white;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .university-header-button a {

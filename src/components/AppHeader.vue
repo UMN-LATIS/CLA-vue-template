@@ -27,7 +27,6 @@
 .masthead {
     border-top: 6px solid var(--gold);
     overflow: visible;
-    background-color: white;
 }
 .header-row {
     display: flex;
