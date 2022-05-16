@@ -34,7 +34,6 @@
 }
 
 .header-row-internal {
-    max-width: 90em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
