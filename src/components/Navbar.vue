@@ -9,6 +9,7 @@
             </div>
             <ul class="mobile-navbar-block" :class="isOpen" >
                 <slot name="navbar-links"></slot>
+                <slot name="navbar-links-right"></slot>
             </ul>
         </div>
         <div class="outer-block">
