@@ -1,6 +1,6 @@
 <template>
     <a href="https://cla.umn.edu" class="wordmark-link">
-        <img :src="wordmark" />
+        <img :src="wordmark" alt="College of Liberal Arts" />
     </a>
 </template>
 
