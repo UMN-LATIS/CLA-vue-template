@@ -54,6 +54,8 @@
         color: var(--dark-gray);
         background-color: var(--light-gray);
         margin-top: -2rem;
+        position: relative;
+        z-index: -1;
     }
 
     .app-footer-container {
