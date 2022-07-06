@@ -1,7 +1,5 @@
 body {
-  font-family: "Open Sans",
-    Arial,
-    sans-serif !important;
+  font-family: "Open Sans", Arial, sans-serif !important;
   margin: 0 !important;
   padding: 0 !important;
   background-color: var(--main-bg-color) !important;
@@ -11,7 +9,7 @@ body {
 .cla-template-wrapper {
   min-height: 100vh;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 :root {
@@ -26,5 +24,4 @@ body {
   --nav-item-active: #d5d6d2;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
