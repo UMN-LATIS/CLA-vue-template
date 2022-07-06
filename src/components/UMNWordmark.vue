@@ -4,19 +4,6 @@
             version="1.1" id="wordmark-full" x="0px" y="0px" viewBox="0 0 285.87 37.96"
             style="enable-background:new 0 0 285.87 37.96;" xml:space="preserve">
             <title>UMN Wordmark</title>
-            <svg:style type="text/css">
-                .fill__maroon {
-                    fill: #7A0019;
-                }
-
-                .fill__dark-gray {
-                    fill: #231F20;
-                    stroke: #000000;
-                    stroke-width: 0.1;
-                    stroke-miterlimit: 10;
-                }
-            </svg:style>
-
             <g class="wordmark block_m">
                 <path class="fill__maroon"
                     d="M54.65,29.11L44.43,12.12h2.82V3.26H30.24v8.85h2.82l-3.91,6.49l-3.9-6.49h2.81V3.26H11.05v8.85h2.81    L3.65,29.11H0v8.85h17.35v-8.85h-3.12l5.32-8.85l2.06,3.43h-1.98v8.85h19.02v-8.85h-1.98l2.07-3.43l5.32,8.85h-3.11v8.85H58.3    v-8.85H54.65z">
@@ -158,6 +145,16 @@ svg.umn-wordmark .u-of-m {
     transform: translateY(15px);
 }
 
+.fill__maroon {
+    fill: #7A0019;
+}
+
+.fill__dark-gray {
+    fill: #231F20;
+    stroke: #000000;
+    stroke-width: 0.1;
+    stroke-miterlimit: 10;
+}
     @media (min-width: 49em) {
         svg.umn-wordmark .d-2-d {
             display: block;
