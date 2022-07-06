@@ -87,7 +87,6 @@
 }
 
 .branding-block {
-  /* max-width: fit-content; */
   align-items: center;
   display: flex;
   height: 100%;
