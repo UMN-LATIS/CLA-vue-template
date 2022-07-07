@@ -63,7 +63,9 @@ To pull changes from the template library into your application, update the subm
 git submodule update --recursive --remote
 ```
 
-## Other notes
+## Other Notes
+
+### Github Actions
 
 Remember that you need to checkout submodules when adding this to an app. If using GitHub actions, you can adjust your checkout action:
 
@@ -74,14 +76,25 @@ with:
     submodules: recursive
 ```
 
-If you're using deployer, remember to adjust that checkout as well:
+### Deployer
 
-```
-after('deploy:update_code', 'deploy:git:submodules');
-task('deploy:git:submodules', function () {
-    $git = get('bin/git');
+If you're using deployer, you'll need to adjust your `deploy.php` as well:
 
-    cd('{{release_path}}');
-    run("$git submodule update --init");
-});
-```
+1. Make sure you're `update_code_strategy` is set ot `clone`:
+
+   ```php
+   set('update_code_strategy', 'clone');
+   ```
+
+2. Create a `deploy:git:submodules` task, and sequence it to run after `deploy:update_code`:
+
+   ```php
+   task('deploy:git:submodules', function () {
+       $git = get('bin/git');
+
+       cd('{{release_path}}');
+       run("$git submodule update --init");
+   });
+
+   after('deploy:update_code', 'deploy:git:submodules');
+   ```
