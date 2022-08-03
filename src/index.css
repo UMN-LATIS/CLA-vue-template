@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+
 body {
   font-family: "Open Sans", Arial, sans-serif !important;
   margin: 0 !important;
@@ -23,5 +25,3 @@ body {
   --light-black: #262626;
   --nav-item-active: #d5d6d2;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
