@@ -57,7 +57,13 @@ You probably want to wrap all of your components in a `<div class="cla-template-
 
 ## Updating components
 
-To pull changes from the template library into your application, update the submodule:
+If it's the first time you check-out a repo that uses this submodule, you'll need to use --init to initialize:
+
+```
+git submodule update --init --recursive
+```
+
+After that, to pull changes from the template library into your application, update the submodule:
 
 ```git
 git submodule update --recursive --remote
