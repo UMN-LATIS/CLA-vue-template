@@ -11,7 +11,7 @@
                             <li>LATIS</li>
                             <li>110 Anderson Hall</li>
                             <li>257 19th Ave S</li>
-                            <li>Mineapolis, MN, 55455</li>
+                            <li>Minneapolis, MN, 55455</li>
                         </ul>
                     </div>
                     <div class="footer-connect">
