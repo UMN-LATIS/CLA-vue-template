@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2020",
     "outDir": "dist",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "declaration": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "ES2022",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "types": ["vite/client"],
     "noEmit": true,
-    "types": ["vite/client"]
+    "declaration": true,
+    "declarationMap": true,
+    "jsx": "preserve"
   },
   "include": ["src", "src/**/*.d.ts"],
   "exclude": ["node_modules", "dist", "assets", ".storybook"]

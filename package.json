@@ -5,20 +5,21 @@
   "description": "Basic layout for CLA (LATIS) VueJS apps",
   "author": "LATIS Technology Architecture",
   "type": "module",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "files": [
-    "src/**/*",
-    "!src/**/*.stories.js"
+    "dist"
   ],
+  "module": "./dist/index.js",
+  "main": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/UMN-LATIS/CLA-vue-template"
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && rollup -c",
     "dev": "vite",
+    "build": "rm -rf dist && vite build && vue-tsc -b tsconfig.build.json",
+    "preview": "vite preview",
     "lint": "eslint --ext .js,.ts,.vue src",
     "lint:fix": "eslint --ext .js,.ts,.vue src --fix",
     "prettier": "prettier --write \"src/**/*.{js,ts,vue}\"",
