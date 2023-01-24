@@ -56,6 +56,25 @@
   </footer>
 </template>
 
+<script lang="ts" setup>
+import { ref } from "vue-demi";
+import CLAWordmark from "./CLAWordmark.vue";
+
+withDefaults(
+  defineProps<{
+    contact: string;
+  }>(),
+  {
+    contact: "latistecharch@umn.edu",
+  }
+);
+
+const reportIssueURL = ref(
+  "https://oit-drupal-prd-web.oit.umn.edu/indexAccess.php?ref_url=" +
+    encodeURI(window.location.href)
+);
+</script>
+
 <style scoped>
 .app-footer {
   color: var(--dark-gray);
@@ -167,28 +186,3 @@
   max-width: 31.25em;
 }
 </style>
-
-<script lang="ts">
-import { ref } from "vue-demi";
-import CLAWordmark from "./CLAWordmark.vue";
-export default {
-  name: "AppFooter",
-  components: {
-    CLAWordmark,
-  },
-  props: {
-    contact: {
-      type: String,
-      default: "latistecharch@umn.edu",
-    },
-  },
-  setup() {
-    return {
-      reportIssueURL: ref(
-        "https://oit-drupal-prd-web.oit.umn.edu/indexAccess.php?ref_url=" +
-          encodeURI(window.location.href)
-      ),
-    };
-  },
-};
-</script>

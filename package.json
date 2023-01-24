@@ -32,6 +32,7 @@
     "vue-demi": "^0.12.1"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-essentials": "^7.0.0-beta.32",
     "@storybook/addon-interactions": "^7.0.0-beta.32",
     "@storybook/addon-links": "^7.0.0-beta.32",
