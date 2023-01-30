@@ -1,81 +1,38 @@
 <template>
-    <li class="navbar-item">
-        <slot></slot>
-    </li>
+  <li
+    class="navbar-item flex-1 list-none m-0 hover:bg-neutral-50 transition-colors relative"
+    :class="{
+      'bg-neutral-300 font-bold text-neutral-800': isActive,
+    }"
+  >
+    <slot></slot>
+  </li>
 </template>
 
-
-
 <style scoped>
-
-.navbar-item {
-    text-align: center;
-    margin-bottom: 0;
-    list-style-type: none;
+::v-slotted(a),
+::v-slotted(button) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  outline-offset: -4px;
+  padding: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.navbar-item:not(:first-child):not(:last-child) {
-    flex: 1 0 auto;
+::v-slotted(a) {
+  color: var(--dark-gray);
 }
-
-::v-slotted(.active a) {
-    background-color: var(--nav-item-active) !important;
-}
-
-::v-slotted(.navbar-item a) {
-    font-size: 1rem;
-    background-color: var(--light-gray);
-    outline-offset: -4px;
-    padding: 1rem;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    text-decoration: none;
-    color: var(--dark-gray);
-    white-space: nowrap;
-    transition: background-color 0.2s ease-in-out;
-}
-
-::v-slotted(.navbar-item a:hover) {
-    background-color: var(--nav-item-active);
-    transition: background-color 0.2s ease-in-out;
-}
-
-.active a {
-    background-color: var(--nav-item-active) !important;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.navbar-item a {
-    font-size: 1rem;
-    background-color: var(--light-gray);
-    outline-offset: -4px;
-    padding: 1rem;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    text-decoration: none;
-    color: var(--dark-gray);
-    white-space: nowrap;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.navbar-item a:hover {
-    background-color: var(--nav-item-active);
-    transition: background-color 0.2s ease-in-out;
-}
-
 </style>
 
-<script>
-  export default {
-    name: 'NavbarItem',
-    props: {
-    },
-    setup() {
-       return {
-        
-       }
-    },
-  };
+<script setup lang="ts">
+withDefaults(
+  defineProps<{
+    isActive?: boolean;
+  }>(),
+  {
+    isActive: false,
+  }
+);
 </script>
