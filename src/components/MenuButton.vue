@@ -1,18 +1,19 @@
 <template>
   <button
-    aria-pressed="false"
-    aria-expanded="false"
+    :aria-pressed="isOpen"
+    :aria-expanded="isOpen"
     title="Toggle Section Menu Visibility"
-    tabindex="0"
-    class="bg-transparent border flex gap-2 flex-col place-items-center p-2 focus:outline-none focus:border-2 focus:border-umn-maroon focus:border-offset-2 focus:border-dashed"
+    class="flex flex-col items-center justify-center gap-1 p-2 text-umn-neutral-700"
   >
-    <span class="uppercase text-xs font-semibold text-umn-neutral-700"
-      >Menu</span
-    >
+    <span class="uppercase text-xs font-semibold">Menu</span>
     <Bars />
   </button>
 </template>
 <script setup lang="ts">
 import { Bars } from "../icons";
+
+defineProps<{
+  isOpen: boolean;
+}>();
 </script>
 <style scoped></style>
