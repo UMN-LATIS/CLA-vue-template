@@ -10,17 +10,7 @@
         <h1
           class="text-lg sm:text-2xl leading-none font-semibold text-umn-maroon"
         >
-          <a
-            v-if="href"
-            :href="href"
-            class="text-umn-maroon no-underline hover:underline"
-          >
-            <slot />
-          </a>
-          <template v-else>
-            <slot />
-            <slot name="app-link" />
-          </template>
+          <slot name="app-link" />
         </h1>
       </div>
       <slot name="right" />
