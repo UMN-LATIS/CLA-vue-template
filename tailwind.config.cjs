@@ -7,12 +7,12 @@ module.exports = {
         "umn-maroon": "#7a0019",
         "umn-gold": "#ffcc33",
         "umn-gold-light": "#ffde7a",
-        "umn-neutral-50": "rgb(249, 247, 246)",
-        "umn-neutral-100": `#f0efee`,
+        "umn-neutral-50": "#f9f7f6", // page background color
+        "umn-neutral-100": `#f0efee`, // gray for navbar
         "umn-neutral-200": `#d5d6d2`,
         "umn-neutral-500": `#737487`,
-        "umn-neutral-700": `#5a5a5a`,
-        "umn-neutral-800": `#262626`,
+        "umn-neutral-700": `#5a5a5a`, // text color
+        "umn-neutral-800": `#262626`, // active text color
         "umn-neutral-900": `#1a1a1a`,
       },
     },
