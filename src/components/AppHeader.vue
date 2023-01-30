@@ -11,6 +11,13 @@
         <template v-slot:app-link>
           <slot name="app-link"></slot>
         </template>
+        <template #right>
+          <MenuButton
+            class="md:hidden"
+            :isOpen="isMenuOpen"
+            @click="handleMenuButtonClick"
+          />
+        </template>
       </CollegeHeader>
     </div>
     <div class="header-row">
@@ -53,7 +60,13 @@
 import CollegeHeader from "./CollegeHeader.vue";
 import UniversityHeader from "./UniversityHeader.vue";
 import Navbar from "./Navbar.vue";
+import MenuButton from "./MenuButton.vue";
 import { ref } from "vue";
 
 const isMenuOpen = ref(false);
+
+function handleMenuButtonClick() {
+  isMenuOpen.value = !isMenuOpen.value;
+  console.log("menu is open now", isMenuOpen.value);
+}
 </script>

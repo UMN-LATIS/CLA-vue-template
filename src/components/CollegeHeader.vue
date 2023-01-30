@@ -23,22 +23,18 @@
           </template>
         </h1>
       </div>
-      <MenuButton
-        class="md:hidden"
-        :isOpen="isMenuOpen"
-        @click="(event) => $emit('clickMenu')"
-      />
+      <slot name="right" />
     </div>
   </div>
 </template>
 
 <style scoped>
-:slotted(a) {
+.branding-block :slotted(a) {
   color: inherit;
   text-decoration: none;
 }
 
-:slotted(a:hover) {
+.branding-block :slotted(a:hover) {
   text-decoration: underline;
 }
 </style>

@@ -13,7 +13,6 @@
 ::v-slotted(a),
 ::v-slotted(button) {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   outline-offset: -4px;
   padding: 1rem;
