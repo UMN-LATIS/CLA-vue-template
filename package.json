@@ -29,6 +29,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@vueuse/core": "^9.12.0",
     "vue-demi": "^0.12.1"
   },
   "devDependencies": {
