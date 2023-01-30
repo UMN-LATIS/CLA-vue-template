@@ -1,5 +1,6 @@
 import AppHeader from './AppHeader.vue';
 import NavbarItem from './NavbarItem.vue';
+import NavbarDropdown from './NavbarDropdown.vue';
 
 
 export default {
@@ -18,7 +19,7 @@ export default {
 };
 
 const Template = args => ({
-  components: { AppHeader, NavbarItem },
+  components: { AppHeader, NavbarItem, NavbarDropdown },
   setup() {
     return { args };
   },
@@ -28,7 +29,10 @@ const Template = args => ({
 export const Default = Template.bind({});
 Default.args = {
     appslot: '<a href="/">MyLink</a>',
-    navslot: '<NavbarItem class="active"><a href="/">Home</a></NavbarItem><NavbarItem><a href="/">Away</a></NavbarItem><NavbarItem><a href="/">Really Away</a></NavbarItem>'
+    navslot: `
+      <NavbarItem class="active"><a href="/">Home</a></NavbarItem>
+      <NavbarItem><a href="/">Away</a></NavbarItem>
+      <NavbarItem><a href="/">Really Away</a></NavbarItem>`
 };
 
 const Template2 = args => ({
@@ -45,4 +49,22 @@ SplitNav.args = {
     appslot: '<a href="/">MyLink</a>',
     navslot: '<NavbarItem class="active"><a href="/">Home</a></NavbarItem><NavbarItem><a href="/">Away</a></NavbarItem><NavbarItem><a href="/">Really Away</a></NavbarItem>',
     navslotRight: '<NavbarItem><a href="/">Help</a></NavbarItem><NavbarItem><a href="/">Logout</a></NavbarItem>'
+};
+
+export const WithDropdownItems = Template.bind({});
+WithDropdownItems.args = {
+    ...Default.args,
+    navslot: `
+      <NavbarItem><a href="#">Item</a></NavbarItem>
+      <NavbarDropdown label="Dropdown 1">
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+      </NavbarDropdown>
+      <NavbarDropdown label="Dropdown 2">
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+        <NavbarItem><a href="#">Dropdown Item</a></NavbarItem>
+      </NavbarDropdown>
+      `
 };
