@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -29,6 +30,10 @@ body {
   --nav-item-active: #d5d6d2;
 }
 
-.tw-preflight {
-  @import "tailwindcss/src/preflight";
+.debug-blue {
+  border: 1px solid blue;
+}
+
+.debug-red {
+  border: 1px solid red;
 }
