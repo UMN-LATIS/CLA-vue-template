@@ -1,18 +1,24 @@
 <template>
   <div class="w-full bg-umn-neutral-100">
     <!-- mobile nav menu -->
-    <div
-      class="mobile-nav-container w-full flex flex-col md:hidden transition-all duration-100 overflow-auto bg-white"
-      :class="{
-        'max-h-screen': isOpen,
-        'max-h-0': !isOpen,
-      }"
+    <Transition
+      enterFromClass="max-h-0"
+      enterActiveClass="transition-all ease-in"
+      enterToClass=" max-h-fit"
+      leaveActiveClass="transition-all ease-out"
+      leaveFromClass="max-h-fit"
+      leaveToClass="max-h-0"
     >
-      <ul class="mobile-nav__list">
-        <slot name="navbar-links"></slot>
-        <slot name="navbar-links-right"></slot>
-      </ul>
-    </div>
+      <div
+        v-if="isOpen"
+        class="mobile-nav-container w-full flex flex-col md:hidden overflow-hidden bg-white inset-shadow"
+      >
+        <ul class="mobile-nav__list m-4">
+          <slot name="navbar-links"></slot>
+          <slot name="navbar-links-right"></slot>
+        </ul>
+      </div>
+    </Transition>
 
     <!-- navbar menu -->
     <nav role="navigation" class="max-w-[90em] w-full mx-auto hidden md:block">
@@ -30,15 +36,15 @@
 </template>
 
 <style scoped>
-.mobile-nav-container {
-  /* inset shadow */
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid var(--light-gray);
+.inset-shadow {
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.inset-shadow-none {
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0);
 }
 
 .mobile-nav__list :slotted(li) {
-  margin: 1rem;
-  background: var(--light-gray);
+  margin: 0.5rem auto;
 }
 </style>
 

@@ -18,6 +18,7 @@
   "scripts": {
     "dev": "vite",
     "build": "rm -rf dist && vite build && vue-tsc -b tsconfig.build.json",
+    "build:watch": "vite build --watch",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.ts,.vue src",
     "lint:fix": "eslint --ext .js,.ts,.vue src --fix",

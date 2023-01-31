@@ -3,13 +3,11 @@
     <div
       class="flex max-w-[90em] w-full mx-auto justify-between items-center p-4"
     >
-      <div class="branding-block flex flex-col justify-center gap-1">
+      <div class="branding-block flex flex-col gap-1">
         <span class="link-wrapper">
           <CLAWordmark />
         </span>
-        <h1
-          class="text-lg sm:text-2xl leading-none font-semibold text-umn-maroon"
-        >
+        <h1 class="text-2xl leading-none font-semibold text-umn-maroon">
           <slot name="app-link" />
         </h1>
       </div>
@@ -31,7 +29,6 @@
 
 <script setup lang="ts">
 import CLAWordmark from "./CLAWordmark.vue";
-import MenuButton from "./MenuButton.vue";
 
 defineProps<{
   href?: string;
