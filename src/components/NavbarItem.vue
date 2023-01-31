@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   outline-offset: -4px;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
   text-decoration: none;
   white-space: nowrap;
 }

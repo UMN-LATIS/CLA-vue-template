@@ -13,7 +13,7 @@
         v-if="isOpen"
         class="mobile-nav-container tw-w-full tw-flex tw-flex-col md:tw-hidden tw-overflow-hidden tw-bg-white inset-shadow"
       >
-        <ul class="mobile-nav__list tw-m-4">
+        <ul class="mobile-nav__list tw-mx-4 tw-my-2">
           <slot name="navbar-links"></slot>
           <slot name="navbar-links-right"></slot>
         </ul>
