@@ -28,7 +28,7 @@
     >
       <ul
         v-if="isOpen"
-        class="tw-bg-neutral-100 md:tw-bg-white md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md"
+        class="tw-bg-neutral-100 md:tw-bg-white md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40"
       >
         <slot></slot>
       </ul>
