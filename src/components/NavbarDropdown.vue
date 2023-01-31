@@ -18,15 +18,21 @@
         }"
       />
     </button>
-    <ul
-      class="bg-neutral-100 md:bg-white md:absolute md:top-full md:left-0 md:w-64 md:-mt-1 md:shadow-md transition-all"
-      :class="{
-        'overflow-auto max-h-64': isOpen,
-        'overflow-hidden max-h-0': !isOpen,
-      }"
+    <Transition
+      enterFromClass="max-h-0 scale-y-95 md:max-h-fit opacity-0"
+      enterActiveClass="transition-all ease-in"
+      enterToClass="max-h-64 scale-y-100 opacity-100 md:max-h-fit"
+      leaveFromClass="max-h-64 scale-y-100 opacity-100 md:max-h-fit"
+      leaveActiveClass="transition-all ease-out"
+      leaveToClass="max-h-0 scale-y-95 opacity-0 md:max-h-fit"
     >
-      <slot></slot>
-    </ul>
+      <ul
+        v-if="isOpen"
+        class="bg-neutral-100 md:bg-white md:absolute md:top-full md:left-0 md:w-64 md:-mt-1 md:shadow-md overflow-hidden origin-top md:rounded-md"
+      >
+        <slot></slot>
+      </ul>
+    </Transition>
   </NavbarItem>
 </template>
 <script setup lang="ts">
