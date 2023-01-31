@@ -4,7 +4,7 @@
       @click="isOpen = !isOpen"
       class="tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between"
       :class="{
-        'tw-text-umn-maroon tw-bg-neutral-200 md:tw-bg-white': isOpen,
+        'tw-text-umn-maroon tw-bg-neutral-200 md:tw-bg-neutral-50': isOpen,
         'tw-text-umn-neutral-700': !isOpen,
       }"
       tabindex="0"
@@ -28,7 +28,7 @@
     >
       <ul
         v-if="isOpen"
-        class="tw-bg-neutral-100 md:tw-bg-white md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40"
+        class="tw-bg-neutral-100 md:tw-bg-neutral-50 md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40"
       >
         <slot></slot>
       </ul>
@@ -55,4 +55,11 @@ onClickOutside(itemContainer, () => {
   isOpen.value = false;
 });
 </script>
-<style scoped></style>
+<style scoped>
+:slotted(li) {
+  background: var(--umn-neutral-50);
+}
+:slotted(li:hover) {
+  background: #fff;
+}
+</style>

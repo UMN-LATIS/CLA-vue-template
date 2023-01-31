@@ -10,22 +10,21 @@
 </template>
 
 <style scoped>
-::v-slotted(a),
-::v-slotted(button) {
+:slotted(a),
+:slotted(button) {
   display: flex;
   align-items: center;
   outline-offset: -4px;
   padding: 0.75rem 1rem;
   text-decoration: none;
   white-space: nowrap;
-  background: transparent;
 }
 
-::v-slotted(a) {
+:slotted(a) {
   color: var(--dark-gray);
 }
 
-::v-slotted(a:hover) {
+:slotted(a:hover) {
   color: var(--dark-gray);
 }
 </style>
