@@ -1,8 +1,8 @@
 <template>
   <li
-    class="navbar-item flex-1 list-none m-0 transition-colors relative hover:bg-umn-neutral-50 bg-umn-neutral-100"
+    class="navbar-item tw-flex-1 tw-list-none tw-m-0 tw-transition-colors tw-relative tw-hover:bg-umn-neutral-50 tw-bg-umn-neutral-100"
     :class="{
-      'bg-neutral-300 font-bold text-neutral-800': isActive,
+      'tw-bg-neutral-300 tw-font-bold tw-text-neutral-800': isActive,
     }"
   >
     <slot></slot>

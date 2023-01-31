@@ -2,33 +2,33 @@
   <NavbarItem ref="itemContainer">
     <button
       @click="isOpen = !isOpen"
-      class="flex w-full h-full px-5 items-center gap-2 whitespace-nowrap justify-between"
+      class="tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between"
       :class="{
-        'text-umn-maroon bg-neutral-200 md:bg-white': isOpen,
-        'text-umn-neutral-700': !isOpen,
+        'tw-text-umn-maroon tw-bg-neutral-200 md:tw-bg-white': isOpen,
+        'tw-text-umn-neutral-700': !isOpen,
       }"
       tabindex="0"
     >
       <span>{{ label }}</span>
       <Icons.ChevronDown
-        class="transition-transform"
+        class="tw-transition-transform"
         :class="{
-          'transform rotate-180 md:rotate-0': isOpen,
-          'transform rotate-0': !isOpen,
+          'tw-transform tw-rotate-180 md:tw-rotate-0': isOpen,
+          'tw-transform tw-rotate-0': !isOpen,
         }"
       />
     </button>
     <Transition
-      enterFromClass="max-h-0 scale-y-95 md:max-h-fit opacity-0"
-      enterActiveClass="transition-all ease-in"
-      enterToClass="max-h-64 scale-y-100 opacity-100 md:max-h-fit"
-      leaveFromClass="max-h-64 scale-y-100 opacity-100 md:max-h-fit"
-      leaveActiveClass="transition-all ease-out"
-      leaveToClass="max-h-0 scale-y-95 opacity-0 md:max-h-fit"
+      enterFromClass="tw-max-h-0 tw-scale-y-95 md:tw-max-h-fit tw-opacity-0"
+      enterActiveClass="tw-transition-all tw-ease-in"
+      enterToClass="tw-max-h-64 tw-scale-y-100 tw-opacity-100 md:tw-max-h-fit"
+      leaveFromClass="tw-max-h-64 tw-scale-y-100 tw-opacity-100 md:tw-max-h-fit"
+      leaveActiveClass="tw-transition-all tw-ease-out"
+      leaveToClass="tw-max-h-0 tw-scale-y-95 tw-opacity-0 md:tw-max-h-fit"
     >
       <ul
         v-if="isOpen"
-        class="bg-neutral-100 md:bg-white md:absolute md:top-full md:left-0 md:w-64 md:-mt-1 md:shadow-md overflow-hidden origin-top md:rounded-md"
+        class="tw-bg-neutral-100 md:tw-bg-white md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md"
       >
         <slot></slot>
       </ul>

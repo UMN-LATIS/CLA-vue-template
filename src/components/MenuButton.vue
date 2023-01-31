@@ -3,9 +3,9 @@
     :aria-pressed="isOpen"
     :aria-expanded="isOpen"
     title="Toggle Section Menu Visibility"
-    class="flex flex-col items-center justify-center gap-1 p-2 text-umn-neutral-700"
+    class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-gap-1 tw-p-2 tw-text-umn-neutral-700"
   >
-    <span class="uppercase text-xs font-semibold">Menu</span>
+    <span class="tw-uppercase tw-text-xs tw-font-semibold">Menu</span>
     <Bars />
   </button>
 </template>

@@ -13,7 +13,7 @@
         </template>
         <template #right>
           <MenuButton
-            class="md:hidden"
+            class="md:tw-hidden"
             :isOpen="isMenuOpen"
             @click="handleMenuButtonClick"
           />

@@ -1,19 +1,19 @@
 <template>
-  <div class="w-full bg-umn-neutral-100">
+  <div class="tw-w-full tw-bg-umn-neutral-100">
     <!-- mobile nav menu -->
     <Transition
-      enterFromClass="max-h-0"
-      enterActiveClass="transition-all ease-in"
-      enterToClass=" max-h-fit"
-      leaveActiveClass="transition-all ease-out"
-      leaveFromClass="max-h-fit"
-      leaveToClass="max-h-0"
+      enterFromClass="tw-max-h-0"
+      enterActiveClass="tw-transition-all tw-ease-in"
+      enterToClass="tw-max-h-fit"
+      leaveActiveClass="tw-transition-all tw-ease-out"
+      leaveFromClass="tw-max-h-fit"
+      leaveToClass="tw-max-h-0"
     >
       <div
         v-if="isOpen"
-        class="mobile-nav-container w-full flex flex-col md:hidden overflow-hidden bg-white inset-shadow"
+        class="mobile-nav-container tw-w-full tw-flex tw-flex-col md:tw-hidden tw-overflow-hidden tw-bg-white inset-shadow"
       >
-        <ul class="mobile-nav__list m-4">
+        <ul class="mobile-nav__list tw-m-4">
           <slot name="navbar-links"></slot>
           <slot name="navbar-links-right"></slot>
         </ul>
@@ -21,13 +21,16 @@
     </Transition>
 
     <!-- navbar menu -->
-    <nav role="navigation" class="max-w-[90em] w-full mx-auto hidden md:block">
-      <h2 class="sr-only">App Navigation</h2>
-      <div class="flex justify-between">
-        <ul class="flex">
+    <nav
+      role="navigation"
+      class="tw-max-w-[90em] tw-w-full tw-mx-auto tw-hidden md:tw-block"
+    >
+      <h2 class="tw-sr-only">App Navigation</h2>
+      <div class="tw-flex tw-justify-between">
+        <ul class="tw-flex">
           <slot name="navbar-links"></slot>
         </ul>
-        <ul class="flex">
+        <ul class="tw-flex">
           <slot name="navbar-links-right"></slot>
         </ul>
       </div>

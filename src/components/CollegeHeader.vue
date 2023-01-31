@@ -1,13 +1,15 @@
 <template>
-  <div class="college-header bg-umn-neutral-100 md:bg-white">
+  <div class="college-header tw-bg-umn-neutral-100 md:tw-bg-white">
     <div
-      class="flex max-w-[90em] w-full mx-auto justify-between items-center p-4"
+      class="tw-flex tw-max-w-[90em] tw-w-full tw-mx-auto tw-justify-between tw-items-center tw-p-4"
     >
-      <div class="branding-block flex flex-col gap-1">
+      <div class="branding-block tw-flex tw-flex-col tw-gap-1">
         <span class="link-wrapper">
           <CLAWordmark />
         </span>
-        <h1 class="text-2xl leading-none font-semibold text-umn-maroon">
+        <h1
+          class="tw-text-2xl tw-leading-none tw-font-semibold tw-text-umn-maroon"
+        >
           <slot name="app-link" />
         </h1>
       </div>
