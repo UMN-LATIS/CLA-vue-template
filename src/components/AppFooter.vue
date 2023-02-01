@@ -80,7 +80,7 @@ const reportIssueURL = ref(
   color: var(--dark-gray);
   background-color: var(--light-gray);
   position: relative;
-  box-shadow: inset 0 2px 4px rgba(0 0 0 / 10%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .app-footer-container {
