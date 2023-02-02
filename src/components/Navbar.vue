@@ -11,9 +11,9 @@
     >
       <div
         v-if="isOpen"
-        class="mobile-nav-container tw-w-full tw-flex tw-flex-col md:tw-hidden tw-overflow-hidden tw-bg-white inset-shadow"
+        class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white md:tw-hidden"
       >
-        <ul class="mobile-nav__list tw-mx-4 tw-my-2">
+        <ul class="mobile-nav__list tw-m-4 tw-flex tw-flex-col tw-gap-2">
           <slot name="navbar-links"></slot>
           <slot name="navbar-links-right"></slot>
         </ul>
@@ -23,7 +23,7 @@
     <!-- navbar menu -->
     <nav
       role="navigation"
-      class="tw-max-w-[90em] tw-w-full tw-mx-auto tw-hidden md:tw-block"
+      class="tw-mx-auto tw-hidden tw-w-full tw-max-w-[90em] md:tw-block"
     >
       <h2 class="tw-sr-only">App Navigation</h2>
       <div class="tw-flex tw-justify-between">
