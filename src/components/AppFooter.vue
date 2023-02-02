@@ -79,8 +79,8 @@ const reportIssueURL = ref(
 .app-footer {
   color: var(--dark-gray);
   background-color: var(--light-gray);
-  margin-top: -2rem;
   position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .app-footer-container {
@@ -119,7 +119,7 @@ const reportIssueURL = ref(
 .footer-offset-container {
   line-height: 1.75rem;
   color: var(--dark-black);
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 .link-wrapper a {

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   font-family: "Open Sans", Arial, sans-serif !important;
   margin: 0 !important;
@@ -15,13 +19,32 @@ body {
 }
 
 :root {
-  --main-bg-color: rgb(249, 247, 246);
-  --maroon: #7a0019;
-  --gold: #ffcc33;
-  --light-gold: #ffde7a;
-  --light-gray: #f0efee;
-  --dark-gray: #5a5a5a;
-  --medium-gray: #737487;
-  --light-black: #262626;
-  --nav-item-active: #d5d6d2;
+  --umn-neutral-50: #f9f7f6;
+  --umn-neutral-100: #f0efee;
+  --umn-neutral-200: #d5d6d2;
+  --umn-neutral-500: #737487;
+  --umn-neutral-700: #5a5a5a;
+  --umn-neutral-800: #262626;
+  --umn-neutral-900: #111;
+  --umn-maroon: #7a0019;
+  --umn-gold: #ffcc33;
+  --umn-gold-400: #ffde7a;
+
+  --main-bg-color: var(--umn-neutral-50);
+  --maroon: var(--umn-maroon);
+  --gold: var(--umn-gold);
+  --light-gold: var(--umn-gold-400);
+  --light-gray: var(--umn-neutral-100);
+  --dark-gray: var(--umn-neutral-700);
+  --medium-gray: var(--umn-neutral-500);
+  --light-black: var(--umn-neutral-800);
+  --nav-item-active: var(--umn-neutral-200);
+}
+
+.debug-blue {
+  border: 1px solid blue;
+}
+
+.debug-red {
+  border: 1px solid red;
 }
