@@ -65,6 +65,5 @@ const isMenuOpen = ref(false);
 
 function handleMenuButtonClick() {
   isMenuOpen.value = !isMenuOpen.value;
-  console.log("menu is open now", isMenuOpen.value);
 }
 </script>
