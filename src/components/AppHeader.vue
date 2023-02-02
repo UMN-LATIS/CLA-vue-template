@@ -12,11 +12,9 @@
           <slot name="app-link"></slot>
         </template>
         <template #right>
-          <MenuButton
-            class="md:tw-hidden"
-            :isOpen="isMenuOpen"
-            @click="handleMenuButtonClick"
-          />
+          <div class="md:tw-hidden">
+            <MenuButton :isOpen="isMenuOpen" @click="handleMenuButtonClick" />
+          </div>
         </template>
       </CollegeHeader>
     </div>
