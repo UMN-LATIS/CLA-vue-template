@@ -3,12 +3,12 @@
     <div
       class="tw-flex tw-max-w-[90em] tw-w-full tw-mx-auto tw-justify-between tw-items-center tw-p-4"
     >
-      <div class="branding-block tw-flex tw-flex-col tw-gap-1">
+      <div class="branding-block tw-flex tw-flex-col tw-gap-2">
         <span class="link-wrapper">
           <CLAWordmark />
         </span>
         <h1
-          class="tw-text-2xl tw-leading-none tw-font-semibold tw-text-umn-maroon"
+          class="tw-text-2xl tw-leading-none tw-font-semibold tw-text-umn-maroon tw-m-0"
         >
           <slot name="app-link" />
         </h1>

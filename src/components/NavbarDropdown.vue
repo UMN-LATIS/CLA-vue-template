@@ -2,7 +2,7 @@
   <NavbarItem ref="itemContainer">
     <button
       @click="isOpen = !isOpen"
-      class="tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between"
+      class="tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between tw-border-0 tw-text-base hover:tw-bg-umn-neutral-200"
       :class="{
         'tw-text-umn-maroon tw-bg-neutral-200 md:tw-bg-neutral-50': isOpen,
         'tw-text-umn-neutral-700': !isOpen,
@@ -28,7 +28,7 @@
     >
       <ul
         v-if="isOpen"
-        class="tw-bg-neutral-100 md:tw-bg-neutral-50 md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40"
+        class="tw-bg-neutral-100 md:tw-bg-neutral-50 md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40 tw-p-0"
       >
         <slot></slot>
       </ul>
@@ -60,6 +60,10 @@ onClickOutside(itemContainer, () => {
   background: var(--umn-neutral-50);
 }
 :slotted(li:hover) {
-  background: #fff;
+  background: var(--umn-neutral-200);
+}
+
+button {
+  font-family: inherit;
 }
 </style>

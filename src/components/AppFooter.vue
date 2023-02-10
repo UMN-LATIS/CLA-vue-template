@@ -37,10 +37,10 @@
         </div>
       </div>
       <div class="university-footer">
-        <span class="copyright-wrapper"
-          >© 2022 Regents of the University of Minnesota. All rights reserved.
-          The University of Minnesota is an equal opportunity educator and
-          employer.</span
+        <span class="copyright-wrapper">
+          © {{ new Date().getFullYear() }} Regents of the University of
+          Minnesota. All rights reserved. The University of Minnesota is an
+          equal opportunity educator and employer.</span
         >
         <span class="accessibility-wrapper"
           >CLA is committed to making its digital resources accessible.

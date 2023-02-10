@@ -1,6 +1,6 @@
 <template>
   <li
-    class="navbar-item tw-flex-1 tw-list-none tw-m-0 tw-transition-colors tw-relative tw-hover:bg-umn-neutral-50 tw-bg-umn-neutral-100"
+    class="navbar-item tw-flex-1 tw-list-none tw-m-0 tw-transition-colors tw-relative hover:tw-bg-umn-neutral-200 tw-bg-umn-neutral-100"
     :class="{
       'tw-bg-neutral-300 tw-font-bold tw-text-neutral-800': isActive,
     }"
@@ -25,6 +25,7 @@
 }
 
 :slotted(a:hover) {
+  text-decoration: none;
   color: var(--dark-gray);
 }
 </style>

@@ -13,7 +13,7 @@
         v-if="isOpen"
         class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white md:tw-hidden"
       >
-        <ul class="mobile-nav__list tw-m-4 tw-flex tw-flex-col tw-gap-2">
+        <ul class="mobile-nav__list tw-m-4 tw-flex tw-flex-col tw-gap-2 tw-p-0">
           <slot name="navbar-links"></slot>
           <slot name="navbar-links-right"></slot>
         </ul>
@@ -27,10 +27,10 @@
     >
       <h2 class="tw-sr-only">App Navigation</h2>
       <div class="tw-flex tw-justify-between">
-        <ul class="tw-flex">
+        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
           <slot name="navbar-links"></slot>
         </ul>
-        <ul class="tw-flex">
+        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
           <slot name="navbar-links-right"></slot>
         </ul>
       </div>
