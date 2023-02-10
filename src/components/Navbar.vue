@@ -47,7 +47,7 @@
 }
 
 .mobile-nav__list :slotted(li) {
-  margin: 0.5rem auto;
+  width: 100%;
 }
 </style>
 
