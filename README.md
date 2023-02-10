@@ -237,4 +237,4 @@ You can build the npm package with `yarn build`. This will create the files and 
 
 To test your local build, use `yarn link` and then try it out on a local project of your choice.
 
-To deploy the updated package, run `yarn release` and follow the prompts.
+To deploy the updated package, run `npx release-it` and follow the prompts.
