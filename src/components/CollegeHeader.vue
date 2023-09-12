@@ -52,9 +52,7 @@ const props = withDefaults(
 );
 
 const breakpoints = useBreakpoints(BREAKPOINTS);
-const atBreakpoint = computed(
-  () => breakpoints.greaterOrEqual(props.menuBreakpoint).value
-);
+const atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
 
 defineEmits<{
   (event: "clickMenu"): void;
