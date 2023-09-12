@@ -26,11 +26,15 @@
       class="tw-mx-auto tw-hidden tw-w-full tw-max-w-[90em] md:tw-block"
     >
       <h2 class="tw-sr-only">App Navigation</h2>
-      <div class="tw-flex tw-justify-between">
-        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
+      <div class="tw-flex tw-justify-between tw-flex-wrap">
+        <ul
+          class="navbar-links-container tw-flex tw-m-0 tw-p-0 tw-items-center tw-flex-wrap"
+        >
           <slot name="navbar-links"></slot>
         </ul>
-        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
+        <ul
+          class="navbar-links-right-container tw-flex tw-m-0 tw-p-0 tw-items-center"
+        >
           <slot name="navbar-links-right"></slot>
         </ul>
       </div>
@@ -48,6 +52,10 @@
 
 .mobile-nav__list :slotted(li) {
   width: 100%;
+}
+
+.navbar-links-container :slotted(li) {
+  flex-grow: 0; /*  prevent wrapped link items from growing */
 }
 </style>
 
