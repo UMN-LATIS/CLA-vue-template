@@ -62,7 +62,7 @@ import CLAWordmark from "./CLAWordmark.vue";
 
 withDefaults(
   defineProps<{
-    contact: string;
+    contact?: string;
   }>(),
   {
     contact: "latistecharch@umn.edu",
