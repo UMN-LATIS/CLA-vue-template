@@ -7,7 +7,7 @@ export default {
   title: "AppHeader",
   argTypes: {
     menuBreakpoint: {
-      options: ["sm", "md", "lg", "xl", "none"],
+      options: ["sm", "md", "lg", "xl", "2xl", "none"],
       control: { type: "radio" },
     },
     appslot: {
