@@ -6,6 +6,10 @@ export default {
   component: AppHeader,
   title: "AppHeader",
   argTypes: {
+    menuBreakpoint: {
+      options: ["sm", "md", "lg", "xl", "none"],
+      control: { type: "radio" },
+    },
     appslot: {
       type: "string",
       default: "Default Slot Text",
@@ -22,11 +26,12 @@ const Template = (args) => ({
   setup() {
     return { args };
   },
-  template: `<AppHeader><template #app-link>${args.appslot}</template><template #navbar-links>${args.navslot}</template></AppHeader>`,
+  template: `<AppHeader :menuBreakpoint="args.menuBreakpoint"><template #app-link>${args.appslot}</template><template #navbar-links>${args.navslot}</template></AppHeader>`,
 });
 
 export const Default = Template.bind({});
 Default.args = {
+  menuBreakpoint: "md",
   appslot: '<a href="/">MyLink</a>',
   navslot: `
       <NavbarItem class="active"><a href="/">Home</a></NavbarItem>
@@ -34,7 +39,7 @@ Default.args = {
       <NavbarItem><a href="/">Really Away</a></NavbarItem>`,
 };
 
-const Template2 = (args) => ({
+const SplitNavTemplate = (args) => ({
   components: { AppHeader, NavbarItem },
   setup() {
     return { args };
@@ -42,8 +47,9 @@ const Template2 = (args) => ({
   template: `<AppHeader><template #app-link>${args.appslot}</template><template #navbar-links>${args.navslot}</template><template #navbar-links-right>${args.navslotRight}</template></AppHeader>`,
 });
 
-export const SplitNav = Template2.bind({});
+export const SplitNav = SplitNavTemplate.bind({});
 SplitNav.args = {
+  ...Default.args,
   appslot: '<a href="/">MyLink</a>',
   navslot:
     '<NavbarItem class="active"><a href="/">Home</a></NavbarItem><NavbarItem><a href="/">Away</a></NavbarItem><NavbarItem><a href="/">Really Away</a></NavbarItem>',
@@ -72,7 +78,6 @@ WithDropdownItems.args = {
 export const WithLargeMenu = Template.bind({});
 WithLargeMenu.args = {
   ...Default.args,
-  breakpoint: "lg",
   navslot: `
       <NavbarItem v-for="idx in 8"><a href="#">My Nav Item {{ idx }} </a></NavbarItem>
       <NavbarDropdown label="Dropdown 1">
