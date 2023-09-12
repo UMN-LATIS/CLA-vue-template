@@ -1,5 +1,5 @@
 <template>
-  <div class="masthead">
+  <div class="masthead umn-app-header">
     <div class="header-row">
       <UniversityHeader class="header-row-internal" />
     </div>
@@ -7,19 +7,25 @@
       <CollegeHeader
         class="header-row-internal header-separator"
         :isMenuOpen="isMenuOpen"
+        :menuBreakpoint="menuBreakpoint"
       >
         <template v-slot:app-link>
           <slot name="app-link"></slot>
         </template>
         <template #right>
-          <div class="md:tw-hidden">
+          <div
+            class="menu-button-container"
+            :class="{
+              'tw-hidden': atBreakpoint,
+            }"
+          >
             <MenuButton :isOpen="isMenuOpen" @click="handleMenuButtonClick" />
           </div>
         </template>
       </CollegeHeader>
     </div>
     <div class="header-row">
-      <Navbar :isOpen="isMenuOpen">
+      <Navbar :isOpen="isMenuOpen" :menuBreakpoint="menuBreakpoint">
         <template #navbar-links>
           <slot name="navbar-links"></slot>
         </template>
@@ -59,9 +65,27 @@ import CollegeHeader from "./CollegeHeader.vue";
 import UniversityHeader from "./UniversityHeader.vue";
 import Navbar from "./Navbar.vue";
 import MenuButton from "./MenuButton.vue";
-import { ref } from "vue";
+import { ref, provide, computed } from "vue";
+import { useBreakpoints } from "@vueuse/core";
+import { BREAKPOINTS, menuBreakpointInjectionKey } from "../constants";
+
+const props = withDefaults(
+  defineProps<{
+    menuBreakpoint?: keyof typeof BREAKPOINTS;
+  }>(),
+  {
+    menuBreakpoint: "md",
+  }
+);
+
+const breakpoints = useBreakpoints(BREAKPOINTS);
+const atBreakpoint = computed(
+  () => breakpoints.greaterOrEqual(props.menuBreakpoint).value
+);
 
 const isMenuOpen = ref(false);
+
+provide(menuBreakpointInjectionKey, props.menuBreakpoint);
 
 function handleMenuButtonClick() {
   isMenuOpen.value = !isMenuOpen.value;

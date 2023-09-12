@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-w-full tw-bg-umn-neutral-100">
+  <div :class="`umn-navbar tw-w-full tw-bg-umn-neutral-100`">
     <!-- mobile nav menu -->
     <Transition
       enterFromClass="tw-max-h-0"
@@ -11,7 +11,10 @@
     >
       <div
         v-if="isOpen"
-        class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white md:tw-hidden"
+        class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white"
+        :class="{
+          'tw-hidden': atBreakpoint,
+        }"
       >
         <ul class="mobile-nav__list tw-m-4 tw-flex tw-flex-col tw-gap-2 tw-p-0">
           <slot name="navbar-links"></slot>
@@ -23,7 +26,8 @@
     <!-- navbar menu -->
     <nav
       role="navigation"
-      class="tw-mx-auto tw-hidden tw-w-full tw-max-w-[90em] md:tw-block"
+      class="tw-mx-auto tw-w-full tw-max-w-[90em]"
+      :class="[atBreakpoint ? 'tw-block' : 'tw-hidden']"
     >
       <h2 class="tw-sr-only">App Navigation</h2>
       <div class="tw-flex tw-justify-between tw-flex-wrap">
@@ -60,7 +64,23 @@
 </style>
 
 <script setup lang="ts">
-defineProps<{
-  isOpen: boolean;
-}>();
+import { computed } from "vue";
+import { BREAKPOINTS } from "../constants";
+import { useBreakpoints } from "@vueuse/core";
+
+const props = withDefaults(
+  defineProps<{
+    isOpen: boolean;
+    menuBreakpoint: keyof typeof BREAKPOINTS;
+  }>(),
+  {
+    isOpen: false,
+    menuBreakpoint: "md",
+  }
+);
+
+const breakpoints = useBreakpoints(BREAKPOINTS);
+const atBreakpoint = computed(
+  () => breakpoints.greaterOrEqual(props.menuBreakpoint).value
+);
 </script>

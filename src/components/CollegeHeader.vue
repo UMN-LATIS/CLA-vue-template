@@ -1,5 +1,8 @@
 <template>
-  <div class="college-header tw-bg-umn-neutral-100 md:tw-bg-white">
+  <div
+    class="college-header"
+    :class="[atBreakpoint ? 'tw-bg-white' : 'tw-bg-umn-neutral-100']"
+  >
     <div
       class="tw-flex tw-max-w-[90em] tw-w-full tw-mx-auto tw-justify-between tw-items-center tw-p-4"
     >
@@ -30,12 +33,28 @@
 </style>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import CLAWordmark from "./CLAWordmark.vue";
+import { useBreakpoints } from "@vueuse/core";
+import { BREAKPOINTS } from "../constants";
 
-defineProps<{
-  href?: string;
-  isMenuOpen: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    isMenuOpen: boolean;
+    href?: string;
+    menuBreakpoint: keyof typeof BREAKPOINTS;
+  }>(),
+  {
+    href: "/",
+    isMenuOpen: false,
+    menuBreakpoint: "md",
+  }
+);
+
+const breakpoints = useBreakpoints(BREAKPOINTS);
+const atBreakpoint = computed(
+  () => breakpoints.greaterOrEqual(props.menuBreakpoint).value
+);
 
 defineEmits<{
   (event: "clickMenu"): void;

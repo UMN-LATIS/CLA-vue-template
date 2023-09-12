@@ -1,34 +1,49 @@
 <template>
-  <NavbarItem ref="itemContainer">
+  <NavbarItem ref="itemContainer" class="navbar-dropdown">
     <button
       @click="isOpen = !isOpen"
-      class="tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between tw-border-0 tw-text-base hover:tw-bg-umn-neutral-200"
+      class="navbar-dropdown__button tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between tw-border-0 tw-text-base hover:tw-bg-umn-neutral-200"
       :class="{
-        'tw-text-umn-maroon tw-bg-neutral-200 md:tw-bg-neutral-50': isOpen,
+        'navbar-dropdown__button--is-open tw-text-umn-maroon tw-bg-neutral-200':
+          isOpen,
+        'tw-bg-neutral-50': isOpen && atBreakpoint,
         'tw-text-umn-neutral-700': !isOpen,
       }"
       tabindex="0"
     >
       <span>{{ label }}</span>
       <Icons.ChevronDown
-        class="tw-transition-transform"
+        class="tw-transition-transform chevron-down-icon"
         :class="{
-          'tw-transform tw-rotate-180 md:tw-rotate-0': isOpen,
+          'tw-transform tw-rotate-180': isOpen,
+          'tw-rotate-0': isOpen && atBreakpoint,
           'tw-transform tw-rotate-0': !isOpen,
         }"
       />
     </button>
     <Transition
-      enterFromClass="tw-max-h-0 tw-scale-y-95 md:tw-max-h-fit tw-opacity-0"
+      :enterFromClass="`tw-scale-y-95 ${
+        atBreakpoint ? 'tw-max-h-fit' : 'tw-max-h-0'
+      } tw-opacity-0`"
       enterActiveClass="tw-transition-all tw-ease-in"
-      enterToClass="tw-max-h-64 tw-scale-y-100 tw-opacity-100 md:tw-max-h-fit"
-      leaveFromClass="tw-max-h-64 tw-scale-y-100 tw-opacity-100 md:tw-max-h-fit"
+      :enterToClass="`tw-scale-y-100 tw-opacity-100 ${
+        atBreakpoint ? 'tw-max-h-fit' : 'tw-max-h-64'
+      }`"
+      :leaveFromClass="`w-scale-y-100 tw-opacity-100 ${
+        atBreakpoint ? 'tw-max-h-fit' : 'tw-max-h-64'
+      }`"
       leaveActiveClass="tw-transition-all tw-ease-out"
-      leaveToClass="tw-max-h-0 tw-scale-y-95 tw-opacity-0 md:tw-max-h-fit"
+      :leaveToClass="`tw-scale-y-95 tw-opacity-0 ${
+        atBreakpoint ? 'tw-max-h-fit' : 'tw-max-h-0'
+      }`"
     >
       <ul
         v-if="isOpen"
-        class="tw-bg-neutral-100 md:tw-bg-neutral-50 md:tw-absolute md:tw-top-full md:tw-left-0 md:tw-w-64 md:tw--mt-1 md:tw-shadow-md tw-overflow-hidden tw-origin-top md:tw-rounded-md tw-z-40 tw-p-0"
+        class="tw-bg-neutral-100 tw-overflow-hidden tw-origin-top tw-z-40 tw-p-0"
+        :class="{
+          'tw-bg-neutral-50 tw-absolute tw-top-full tw-right-0 tw-w-48 tw--mt-1 tw-shadow-md tw-rounded-md':
+            atBreakpoint,
+        }"
       >
         <slot></slot>
       </ul>
@@ -38,8 +53,9 @@
 <script setup lang="ts">
 import NavbarItem from "./NavbarItem.vue";
 import * as Icons from "../icons";
-import { ref } from "vue";
-import { onClickOutside } from "@vueuse/core";
+import { ref, inject, computed } from "vue";
+import { onClickOutside, useBreakpoints } from "@vueuse/core";
+import { BREAKPOINTS, menuBreakpointInjectionKey } from "../constants";
 
 defineProps<{
   label: string;
@@ -47,6 +63,12 @@ defineProps<{
 
 const isOpen = ref(false);
 const itemContainer = ref<InstanceType<typeof NavbarItem> | null>(null);
+
+const breakpoints = useBreakpoints(BREAKPOINTS);
+const menuBreakpoint = inject(menuBreakpointInjectionKey, "md");
+const atBreakpoint = computed(() =>
+  breakpoints.isGreaterOrEqual(menuBreakpoint)
+);
 
 onClickOutside(itemContainer, () => {
   // if the container is not mounted or the menu is not
