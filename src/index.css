@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: "Open Sans", Arial, sans-serif !important;
   margin: 0 !important;
