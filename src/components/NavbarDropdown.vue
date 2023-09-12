@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import NavbarItem from "./NavbarItem.vue";
 import * as Icons from "../icons";
-import { ref, inject, computed } from "vue";
+import { ref, inject, computed, watch } from "vue";
 import { onClickOutside, useBreakpoints } from "@vueuse/core";
 import { BREAKPOINTS, menuBreakpointInjectionKey } from "../constants";
 
@@ -63,11 +63,16 @@ defineProps<{
 
 const isOpen = ref(false);
 const itemContainer = ref<InstanceType<typeof NavbarItem> | null>(null);
+const menuBreakpoint = inject(menuBreakpointInjectionKey, "md");
 
 const breakpoints = useBreakpoints(BREAKPOINTS);
-const menuBreakpoint = inject(menuBreakpointInjectionKey, "md");
-const atBreakpoint = computed(() =>
-  breakpoints.isGreaterOrEqual(menuBreakpoint)
+let atBreakpoint = breakpoints.greaterOrEqual(menuBreakpoint);
+
+watch(
+  () => menuBreakpoint,
+  () => {
+    atBreakpoint = breakpoints.greaterOrEqual(menuBreakpoint);
+  }
 );
 
 onClickOutside(itemContainer, () => {

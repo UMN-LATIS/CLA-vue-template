@@ -65,7 +65,7 @@ import CollegeHeader from "./CollegeHeader.vue";
 import UniversityHeader from "./UniversityHeader.vue";
 import Navbar from "./Navbar.vue";
 import MenuButton from "./MenuButton.vue";
-import { ref, provide, computed } from "vue";
+import { ref, provide, computed, watch } from "vue";
 import { useBreakpoints } from "@vueuse/core";
 import { BREAKPOINTS, menuBreakpointInjectionKey } from "../constants";
 
@@ -77,10 +77,15 @@ const props = withDefaults(
     menuBreakpoint: "md",
   }
 );
-
 const breakpoints = useBreakpoints(BREAKPOINTS);
-const atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
+let atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
 
+watch(
+  () => props.menuBreakpoint,
+  () => {
+    atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
+  }
+);
 const isMenuOpen = ref(false);
 
 provide(menuBreakpointInjectionKey, props.menuBreakpoint);

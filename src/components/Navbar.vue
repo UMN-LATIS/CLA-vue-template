@@ -63,15 +63,15 @@
 }
 </style>
 
-<script setup lang="ts">
-import { computed } from "vue";
+<script setup lang="ts" async>
+import { computed, watch } from "vue";
 import { BREAKPOINTS } from "../constants";
 import { useBreakpoints } from "@vueuse/core";
 
 const props = withDefaults(
   defineProps<{
     isOpen: boolean;
-    menuBreakpoint: keyof typeof BREAKPOINTS;
+    menuBreakpoint?: keyof typeof BREAKPOINTS;
   }>(),
   {
     isOpen: false,
@@ -80,5 +80,12 @@ const props = withDefaults(
 );
 
 const breakpoints = useBreakpoints(BREAKPOINTS);
-const atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
+let atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
+
+watch(
+  () => props.menuBreakpoint,
+  () => {
+    atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
+  }
+);
 </script>
