@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-w-full tw-bg-umn-neutral-100">
+  <div :class="`umn-navbar tw-w-full tw-bg-umn-neutral-100`">
     <!-- mobile nav menu -->
     <Transition
       enterFromClass="tw-max-h-0"
@@ -11,7 +11,10 @@
     >
       <div
         v-if="isOpen"
-        class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white md:tw-hidden"
+        class="mobile-nav-container inset-shadow tw-flex tw-w-full tw-flex-col tw-overflow-hidden tw-bg-white"
+        :class="{
+          'tw-hidden': atBreakpoint,
+        }"
       >
         <ul class="mobile-nav__list tw-m-4 tw-flex tw-flex-col tw-gap-2 tw-p-0">
           <slot name="navbar-links"></slot>
@@ -23,14 +26,19 @@
     <!-- navbar menu -->
     <nav
       role="navigation"
-      class="tw-mx-auto tw-hidden tw-w-full tw-max-w-[90em] md:tw-block"
+      class="tw-mx-auto tw-w-full tw-max-w-[90em]"
+      :class="[atBreakpoint ? 'tw-block' : 'tw-hidden']"
     >
       <h2 class="tw-sr-only">App Navigation</h2>
-      <div class="tw-flex tw-justify-between">
-        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
+      <div class="tw-flex tw-justify-between tw-flex-wrap">
+        <ul
+          class="navbar-links-container tw-flex tw-m-0 tw-p-0 tw-items-center tw-flex-wrap"
+        >
           <slot name="navbar-links"></slot>
         </ul>
-        <ul class="tw-flex tw-m-0 tw-p-0 tw-items-center">
+        <ul
+          class="navbar-links-right-container tw-flex tw-m-0 tw-p-0 tw-items-center"
+        >
           <slot name="navbar-links-right"></slot>
         </ul>
       </div>
@@ -49,10 +57,24 @@
 .mobile-nav__list :slotted(li) {
   width: 100%;
 }
+
+.navbar-links-container :slotted(li) {
+  flex-grow: 0; /*  prevent wrapped link items from growing */
+}
 </style>
 
-<script setup lang="ts">
-defineProps<{
-  isOpen: boolean;
-}>();
+<script setup lang="ts" async>
+import { inject } from "vue";
+import { BREAKPOINTS, atBreakpointRefInjectionKey } from "../constants";
+
+withDefaults(
+  defineProps<{
+    isOpen: boolean;
+  }>(),
+  {
+    isOpen: false,
+  }
+);
+
+const atBreakpoint = inject(atBreakpointRefInjectionKey);
 </script>

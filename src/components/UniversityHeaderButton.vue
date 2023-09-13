@@ -1,13 +1,12 @@
 <template>
   <li class="university-header-button">
-        <a :href="linkTarget" :class="classes">          
-            <span class="link-inner"><slot></slot></span>
-        </a>
-    </li>
+    <a :href="linkTarget" :class="classes">
+      <span class="link-inner"><slot></slot></span>
+    </a>
+  </li>
 </template>
 
 <style scoped>
-
 .university-header-button {
   list-style-type: none;
   transition: background-color 0.2s ease-in-out;
@@ -54,29 +53,28 @@
 .university-header-button .bordered-button {
   border: 1px solid rgb(189, 191, 199);
 }
-
 </style>
 
 <script>
-  import { computed } from 'vue-demi';
-  export default {
-    name: 'UniversityHeaderButton',
-    props: {
-      linkTarget: {
-        type: String,
-        required: true,
-      },
-      showBorder: {
-        type: Boolean,
-        default: false,
-      },
+import { computed } from "vue";
+export default {
+  name: "UniversityHeaderButton",
+  props: {
+    linkTarget: {
+      type: String,
+      required: true,
     },
-    setup(props) {
-       return {
-        classes: computed(() => ({
-          'bordered-button': props.showBorder === true,
-        })),
-       }
+    showBorder: {
+      type: Boolean,
+      default: false,
     },
-  };
+  },
+  setup(props) {
+    return {
+      classes: computed(() => ({
+        "bordered-button": props.showBorder === true,
+      })),
+    };
+  },
+};
 </script>
