@@ -27,7 +27,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "release": "yarn build && release-it"
+    "release": "yarn build && npx release-it"
   },
   "dependencies": {
     "@vueuse/core": "^10.4.1",
@@ -79,6 +79,7 @@
     "not dead"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
