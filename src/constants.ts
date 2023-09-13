@@ -1,4 +1,4 @@
-import type { InjectionKey } from "vue";
+import type { InjectionKey, Ref } from "vue";
 
 export const BREAKPOINTS = {
   sm: 640,
@@ -9,6 +9,6 @@ export const BREAKPOINTS = {
   none: Infinity,
 } as const;
 
-export const menuBreakpointInjectionKey = Symbol(
+export const atBreakpointRefInjectionKey = Symbol(
   "menuBreakpoint"
-) as InjectionKey<keyof typeof BREAKPOINTS>;
+) as InjectionKey<Ref<boolean>>;

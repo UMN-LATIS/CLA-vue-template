@@ -64,11 +64,10 @@
 </style>
 
 <script setup lang="ts" async>
-import { computed, watch } from "vue";
-import { BREAKPOINTS } from "../constants";
-import { useBreakpoints } from "@vueuse/core";
+import { inject } from "vue";
+import { BREAKPOINTS, atBreakpointRefInjectionKey } from "../constants";
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     isOpen: boolean;
     menuBreakpoint?: keyof typeof BREAKPOINTS;
@@ -79,13 +78,5 @@ const props = withDefaults(
   }
 );
 
-const breakpoints = useBreakpoints(BREAKPOINTS);
-let atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
-
-watch(
-  () => props.menuBreakpoint,
-  () => {
-    atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
-  }
-);
+const atBreakpoint = inject(atBreakpointRefInjectionKey);
 </script>

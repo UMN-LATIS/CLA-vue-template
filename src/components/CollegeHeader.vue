@@ -33,12 +33,12 @@
 </style>
 
 <script setup lang="ts">
-import { computed, watch } from "vue";
+import { inject } from "vue";
 import CLAWordmark from "./CLAWordmark.vue";
-import { useBreakpoints } from "@vueuse/core";
+import { atBreakpointRefInjectionKey } from "../constants";
 import { BREAKPOINTS } from "../constants";
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     isMenuOpen: boolean;
     href?: string;
@@ -50,15 +50,8 @@ const props = withDefaults(
     menuBreakpoint: "md",
   }
 );
-const breakpoints = useBreakpoints(BREAKPOINTS);
-let atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
 
-watch(
-  () => props.menuBreakpoint,
-  () => {
-    atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
-  }
-);
+const atBreakpoint = inject(atBreakpointRefInjectionKey);
 
 defineEmits<{
   (event: "clickMenu"): void;
