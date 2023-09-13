@@ -1,5 +1,10 @@
 <template>
-  <div class="masthead umn-app-header">
+  <div
+    class="masthead umn-app-header"
+    :class="{
+      'umn-app-header--at-breakpoint': atBreakpoint,
+    }"
+  >
     <div class="header-row">
       <UniversityHeader class="header-row-internal" />
     </div>
@@ -25,7 +30,11 @@
       </CollegeHeader>
     </div>
     <div class="header-row">
-      <Navbar :isOpen="isMenuOpen" :menuBreakpoint="menuBreakpoint">
+      <Navbar
+        :isOpen="isMenuOpen"
+        :menuBreakpoint="menuBreakpoint"
+        ref="navbarRef"
+      >
         <template #navbar-links>
           <slot name="navbar-links"></slot>
         </template>
@@ -36,6 +45,53 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import CollegeHeader from "./CollegeHeader.vue";
+import UniversityHeader from "./UniversityHeader.vue";
+import Navbar from "./Navbar.vue";
+import MenuButton from "./MenuButton.vue";
+import { ref, provide, computed, watch } from "vue";
+import { useBreakpoints } from "@vueuse/core";
+import { BREAKPOINTS, atBreakpointRefInjectionKey } from "../constants";
+
+const props = withDefaults(
+  defineProps<{
+    menuBreakpoint?: keyof typeof BREAKPOINTS;
+  }>(),
+  {
+    menuBreakpoint: "md",
+  }
+);
+const breakpoints = useBreakpoints(BREAKPOINTS);
+
+const atBreakpoint = computed(
+  // .greaterOrEqual returns a ref
+  // while .isGreaterOrEqual return the raw boolean
+  // to ensure the value is recomputed when the window changes size
+  // use the .greaterOrEqual ref
+  (): boolean => breakpoints.greaterOrEqual(props.menuBreakpoint).value
+);
+
+const isMenuOpen = ref(false);
+
+watch(
+  atBreakpoint,
+  () => {
+    // Close the menu when we cross the breakpoint threshold
+    // this prevents the mobile menu from remaining open when
+    // the user resizes the window to a larger size
+    isMenuOpen.value = false;
+  },
+  { immediate: true }
+);
+
+provide(atBreakpointRefInjectionKey, atBreakpoint);
+
+function handleMenuButtonClick() {
+  isMenuOpen.value = !isMenuOpen.value;
+}
+</script>
 
 <style scoped>
 .masthead {
@@ -59,38 +115,3 @@
   border-top: 1px solid var(--light-gray);
 }
 </style>
-
-<script setup lang="ts">
-import CollegeHeader from "./CollegeHeader.vue";
-import UniversityHeader from "./UniversityHeader.vue";
-import Navbar from "./Navbar.vue";
-import MenuButton from "./MenuButton.vue";
-import { ref, provide, computed, watch } from "vue";
-import { useBreakpoints } from "@vueuse/core";
-import { BREAKPOINTS, menuBreakpointInjectionKey } from "../constants";
-
-const props = withDefaults(
-  defineProps<{
-    menuBreakpoint?: keyof typeof BREAKPOINTS;
-  }>(),
-  {
-    menuBreakpoint: "md",
-  }
-);
-const breakpoints = useBreakpoints(BREAKPOINTS);
-let atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
-
-watch(
-  () => props.menuBreakpoint,
-  () => {
-    atBreakpoint = breakpoints.greaterOrEqual(props.menuBreakpoint);
-  }
-);
-const isMenuOpen = ref(false);
-
-provide(menuBreakpointInjectionKey, props.menuBreakpoint);
-
-function handleMenuButtonClick() {
-  isMenuOpen.value = !isMenuOpen.value;
-}
-</script>
