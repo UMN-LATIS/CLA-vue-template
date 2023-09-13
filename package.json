@@ -26,7 +26,8 @@
     "prettier:check": "prettier --check \"src/**/*.{js,ts,vue}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "release": "yarn build && release-it"
   },
   "dependencies": {
     "@vueuse/core": "^10.4.1",
