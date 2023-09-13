@@ -70,11 +70,9 @@ import { BREAKPOINTS, atBreakpointRefInjectionKey } from "../constants";
 withDefaults(
   defineProps<{
     isOpen: boolean;
-    menuBreakpoint?: keyof typeof BREAKPOINTS;
   }>(),
   {
     isOpen: false,
-    menuBreakpoint: "md",
   }
 );
 

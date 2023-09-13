@@ -36,18 +36,15 @@
 import { inject } from "vue";
 import CLAWordmark from "./CLAWordmark.vue";
 import { atBreakpointRefInjectionKey } from "../constants";
-import { BREAKPOINTS } from "../constants";
 
 withDefaults(
   defineProps<{
     isMenuOpen: boolean;
     href?: string;
-    menuBreakpoint: keyof typeof BREAKPOINTS;
   }>(),
   {
     href: "/",
     isMenuOpen: false,
-    menuBreakpoint: "md",
   }
 );
 

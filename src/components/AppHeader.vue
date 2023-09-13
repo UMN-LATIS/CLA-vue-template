@@ -12,7 +12,6 @@
       <CollegeHeader
         class="header-row-internal header-separator"
         :isMenuOpen="isMenuOpen"
-        :menuBreakpoint="menuBreakpoint"
       >
         <template v-slot:app-link>
           <slot name="app-link"></slot>
@@ -30,11 +29,7 @@
       </CollegeHeader>
     </div>
     <div class="header-row">
-      <Navbar
-        :isOpen="isMenuOpen"
-        :menuBreakpoint="menuBreakpoint"
-        ref="navbarRef"
-      >
+      <Navbar :isOpen="isMenuOpen" ref="navbarRef">
         <template #navbar-links>
           <slot name="navbar-links"></slot>
         </template>
