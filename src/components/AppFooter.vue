@@ -49,7 +49,7 @@
           ></span
         >.
         <span class="privacy-wrapper"
-          ><a href="https://twin-cities.umn.edu/privacy">Privacy</a></span
+          ><a :href="privacyUrl">Privacy</a></span
         >
       </div>
     </div>
@@ -63,9 +63,11 @@ import CLAWordmark from "./CLAWordmark.vue";
 withDefaults(
   defineProps<{
     contact?: string;
+    privacyUrl?: string;
   }>(),
   {
     contact: "latistecharch@umn.edu",
+    privacyUrl: "https://twin-cities.umn.edu/privacy",
   }
 );
 
