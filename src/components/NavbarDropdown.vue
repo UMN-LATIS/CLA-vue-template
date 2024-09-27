@@ -55,26 +55,17 @@ import NavbarItem from "./NavbarItem.vue";
 import * as Icons from "../icons";
 import { ref, inject, computed } from "vue";
 import { onClickOutside } from "@vueuse/core";
-import { atBreakpointRefInjectionKey, BREAKPOINTS } from "../constants";
-import { useBreakpoints } from "@vueuse/core";
+import { atBreakpointRefInjectionKey } from "../constants";
+import { useAtBreakpoint } from "../composables/useAtBreakpoint";
 
-const props = withDefaults(
-  defineProps<{
-    label: string;
-    fallbackBreakpoint?: keyof typeof BREAKPOINTS;
-  }>(),
-  {
-    fallbackBreakpoint: "always",
-  }
-);
+defineProps<{
+  label: string;
+}>();
 
 const isOpen = ref(false);
 const itemContainer = ref<InstanceType<typeof NavbarItem> | null>(null);
 
-const breakpoints = useBreakpoints(BREAKPOINTS);
-const atFallbackBreakpoint = computed(() =>
-  breakpoints.isGreaterOrEqual(props.fallbackBreakpoint)
-);
+const { atBreakpoint: atFallbackBreakpoint } = useAtBreakpoint("always");
 
 const atBreakpoint = inject(atBreakpointRefInjectionKey, atFallbackBreakpoint);
 

@@ -65,24 +65,19 @@
 
 <script setup lang="ts" async>
 import { computed, inject, ref } from "vue";
-import { atBreakpointRefInjectionKey, BREAKPOINTS } from "../constants";
-import { useBreakpoints } from "@vueuse/core";
+import { atBreakpointRefInjectionKey } from "../constants";
+import { useAtBreakpoint } from "../composables/useAtBreakpoint";
 
 const props = withDefaults(
   defineProps<{
     isOpen?: boolean;
-    fallbackBreakpoint?: keyof typeof BREAKPOINTS;
   }>(),
   {
     isOpen: false,
-    fallbackBreakpoint: "always",
   }
 );
 
-const breakpoints = useBreakpoints(BREAKPOINTS);
-const atFallbackBreakpoint = computed(() =>
-  breakpoints.isGreaterOrEqual(props.fallbackBreakpoint)
-);
+const { atBreakpoint: atFallbackBreakpoint } = useAtBreakpoint("always");
 
 // injected breakpoint may not be available if used as
 // a standalone component, so fallback to true
