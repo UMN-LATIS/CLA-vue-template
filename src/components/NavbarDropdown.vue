@@ -53,9 +53,10 @@
 <script setup lang="ts">
 import NavbarItem from "./NavbarItem.vue";
 import * as Icons from "../icons";
-import { ref, inject } from "vue";
+import { ref, inject, computed } from "vue";
 import { onClickOutside } from "@vueuse/core";
 import { atBreakpointRefInjectionKey } from "../constants";
+import { useAtBreakpoint } from "../composables/useAtBreakpoint";
 
 defineProps<{
   label: string;
@@ -63,7 +64,10 @@ defineProps<{
 
 const isOpen = ref(false);
 const itemContainer = ref<InstanceType<typeof NavbarItem> | null>(null);
-const atBreakpoint = inject(atBreakpointRefInjectionKey);
+
+const { atBreakpoint: atFallbackBreakpoint } = useAtBreakpoint("always");
+
+const atBreakpoint = inject(atBreakpointRefInjectionKey, atFallbackBreakpoint);
 
 onClickOutside(itemContainer, () => {
   // if the container is not mounted or the menu is not

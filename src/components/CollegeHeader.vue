@@ -36,10 +36,11 @@
 import { inject } from "vue";
 import CLAWordmark from "./CLAWordmark.vue";
 import { atBreakpointRefInjectionKey } from "../constants";
+import { useAtBreakpoint } from "../composables/useAtBreakpoint";
 
 withDefaults(
   defineProps<{
-    isMenuOpen: boolean;
+    isMenuOpen?: boolean;
     href?: string;
   }>(),
   {
@@ -48,7 +49,9 @@ withDefaults(
   }
 );
 
-const atBreakpoint = inject(atBreakpointRefInjectionKey);
+const { atBreakpoint: atFallbackBreakpoint } = useAtBreakpoint("always");
+
+const atBreakpoint = inject(atBreakpointRefInjectionKey, atFallbackBreakpoint);
 
 defineEmits<{
   (event: "clickMenu"): void;
