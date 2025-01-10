@@ -14,11 +14,11 @@ html {
 }
 
 body {
-  font-family: "Open Sans", Arial, sans-serif !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background-color: var(--main-bg-color) !important;
-  line-height: 1.4 !important;
+  font-family: "Open Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-bg-color);
+  line-height: 1.4;
 }
 
 .cla-template-wrapper {
