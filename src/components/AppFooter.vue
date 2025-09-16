@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue-demi";
+import { ref } from "vue";
 import CLAWordmark from "./CLAWordmark.vue";
 
 withDefaults(
