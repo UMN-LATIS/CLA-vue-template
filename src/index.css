@@ -57,3 +57,7 @@ body {
 .debug-red {
   border: 1px solid red;
 }
+
+button {
+  background: transparent;
+}
