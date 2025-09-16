@@ -43,7 +43,7 @@
     left: calc(50% - 55px);
     top: -8px;
     background-color: var(--gold);
-    z-index: 100;
+    z-index: 1;
 }
 
 </style>
