@@ -17,7 +17,7 @@ Import the global stylesheet into your application's js entrypoint (or your main
 
 ```ts
 // application.ts
-import "@umn-latis/cla-vue-template/dist/style.css";
+import "@umn-latis/cla-vue-template/dist/index.css";
 ```
 
 Once the global stylesheet is imported, you can use the components within any other `.vue` file:
@@ -116,10 +116,38 @@ The AppHeader component has two named slots, to include the application title (w
 
 You probably want to wrap all of your components in a `<div class="cla-template-wrapper"></div>` block to set the minimum height to 100vh and ensure your footer is at the bottom.
 
-### Building and releasing the NPM package
+## Local development
 
-You can build the npm package with `npm run build`. This will create the files and type definitions within `/dist`.
+```sh
+# install dependencies
+npm install
 
-To test your local build, use `npm link` and then try it out on a local project of your choice.
+# start dev page
+npm run dev
+```
 
-To deploy the updated package, run `npm run release` and follow the prompts.
+## Build and Release
+
+```sh
+# build and release
+npm run release
+```
+
+## `npm link` for local testing in projects
+
+You can build and test locally before releasing with `npm link`:
+
+```sh
+# in this package directory
+npm link
+
+# in your local project
+npm link @umn-latis/cla-vue-template
+
+# to unlink later from your local project
+npm unlink @umn-latis/cla-vue-template
+
+# to remove the link from this package directory
+npm unlink
+```
+
