@@ -145,5 +145,6 @@ watch(focused, (isFocused) => {
 
 button {
   font-family: inherit;
+  background: transparent;
 }
 </style>
