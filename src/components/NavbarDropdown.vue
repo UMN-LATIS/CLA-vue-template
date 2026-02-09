@@ -4,7 +4,7 @@
       :id="triggerButtonId"
       @click="toggleDropdown"
       @keydown="handleKeydown"
-      class="navbar-dropdown__button tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between tw-border-0 tw-text-base hover:tw-bg-umn-neutral-200"
+      class="navbar-dropdown__button tw-flex tw-w-full tw-h-full tw-px-5 tw-items-center tw-gap-2 tw-whitespace-nowrap tw-justify-between tw-border-0 tw-text-base hover:tw-bg-umn-neutral-200 tw-bg-transparent"
       :class="{
         'navbar-dropdown__button--is-open tw-text-umn-maroon tw-bg-neutral-200':
           isOpen,
